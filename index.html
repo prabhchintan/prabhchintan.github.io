@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="True" name="HandheldFriendly">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=auto">
+    <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1c1c1e" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./assets/style.css?sha256=8652e0ae2ea5d797e78ed7272db859e90f2fff894e6096f32b705a09df5e6c60">
+    <link rel="preload" href="./planet.json" as="fetch" type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="./rss.xml" as="fetch" type="application/rss+xml" crossorigin="anonymous">
+    <title>&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;</title>
+    <script type="text/javascript" src="./assets/utils.js"></script>
+    <script>
+      let userAgentRegex = /Planet\/\S*/;
+      window.PLANET = {
+        visitedFromPlanetClient: !!navigator.userAgent.match(userAgentRegex),
+        assetsPrefix: './',
+      };
+
+      function breadcrumb(stubs) {
+        let container = document.createElement('div');
+        container.classList.add('breadcrumb')
+        let inner = document.createElement('div');
+        inner.classList.add('breadcrumb-inner');
+        container.appendChild(inner);
+        if (!stubs || !stubs.length) {
+          return;
+        }
+
+        const getStubElem = (stub) => {
+          let elem;
+          if (stub.url) {
+            elem = document.createElement('a');
+            elem.href = stub.url;
+          } else {
+            elem = document.createElement('span');
+          }
+          elem.innerText = stub.text;
+          if (stub.classes) {
+            elem.classList.add(...stub.classes);
+          }
+          return elem;
+        };
+
+        const getSeparatorElem = () => {
+          let elem = document.createElement('span');
+          elem.innerText = '›';
+          elem.classList.add("chevron");
+          return elem;
+        }
+
+        inner.append(getStubElem(stubs[0]));
+        inner.append(getSeparatorElem());
+        for (let i = 1; i < stubs.length; i++)  {
+          inner.append(getStubElem(stubs[i]));
+          if (i < stubs.length - 1) {
+            inner.append(getSeparatorElem());
+          }
+        }
+
+        let main = document.querySelector('.wrapper');
+        main.insertAdjacentElement('afterbegin', container);
+      }
+    </script>
+    
+    <link rel="icon" href="./avatar.png" sizes="144x144">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/png">
+    
+    
+<!-- Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;" />
+
+  <meta property="og:image" content="https://retroflex.xyz/avatar.png" />
+  <meta property="og:image:width" content="72" />
+  <meta property="og:image:height" content="72" />
+  <meta property="og:image:alt" content="&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;" />
+<meta name="twitter:title" content="&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;" />
+<meta name="twitter:description" content="" />
+
+  <meta name="twitter:image" content="https://retroflex.xyz/avatar.png" />
+
+<!-- End Open Graph Tags -->
+
+<!-- Pagination -->
+
+
+
+    
+    <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@nytimesbits" />
+<meta name="twitter:creator" content="@nickbilton" />
+<meta property="og:url" content="retroflex.xyz" />
+<meta property="og:title" content="A Twitter for My Sister" />
+<meta property="twitter:description" content="In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling." />
+<meta property="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fprabhchintan%2FXnX6tIbCgu.jpeg?alt=media&token=5c448876-ec81-40bd-8295-d1ef7300c34c" />
+  </head>
+  <body>
+    <html>
+  <body> <br><br>
+    <center>
+    <!-- Add a placeholder for the Twitch embed -->
+    <div id="twitch-embed"></div>
+
+    <!-- Load the Twitch embed script -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element. -->
+    <script type="text/javascript">
+      var embed = new Twitch.Embed("twitch-embed", {
+        width: 320,
+        height: 180,
+        channel: "prabhchintan",
+        layout: "video",
+        autoplay: true,
+        muted: false,
+        // Only needed if this page is going to be embedded on other websites
+        parent: ["xn--spb.com"]
+      });
+
+      embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+        var player = embed.getPlayer();
+        player.play();
+      });
+    </script>
+    </center>
+  </body>
+</html>
+    <div class="wrapper">
+      <div class="main">
+      
+<div class="top">
+  
+  <img src="./avatar.png" width="72" height="72" class="avatar">
+  
+  <div class="site-info">
+    <div class="site-title">&#xA2A;&#xA4D;&#xA30;&#xA2D;&#xA1A;&#xA3F;&#xA70;&#xA24;&#xA28;&#xA30;&#xA70;&#xA27;&#xA3E;&#xA35;&#xA3E;</div>
+    
+  </div>
+</div>
+
+<div class="nav-container"><div class="nav">
+  <a href="./" class="nav-current">Home</a>
+  
+  <a href="./about/" class="nav-item">About</a>
+  
+  <a href="./shop/" class="nav-item">Shop</a>
+  
+  <a href="./rss.xml" target="_blank"><img src="./assets/rss.svg" alt="RSS" class="social-icon" width="1em"></a>
+  
+  <a href="./podcast.xml" target="_blank"><img src="./assets/podcast.svg" alt="Podcast" class="social-icon" width="1em"></a>
+  
+  
+  <a href="https://twitter.com/prabhchintan" target="_blank"><img src="./assets/twitter.svg" alt="twitter.com/prabhchintan" class="social-icon" width="1em"></a>
+  
+  
+  <a href="https://github.com/prabhchintan" target="_blank"><img src="./assets/github.svg" alt="github.com/prabhchintan" class="social-icon" width="1em"></a>
+  
+  
+  
+</div></div>
+
+<div class="items">
+  
+  <div class="item">
+    
+    <!--<div class="item-hero-image"><a href="1C5E86C9-8677-4CC0-BAE9-A2607107F91E/"><img src="1C5E86C9-8677-4CC0-BAE9-A2607107F91E/https://retroflex.xyz/options/14e_30inno_merton-scholes-black_640x250-1497809400.jpeg"></a></div>-->
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./options/">The Black-Scholes Option Model</a></div>
+      <div class="item-info">
+        <div class="item-date">Jun 17, 2023</div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="item">
+    
+    <!--<div class="item-hero-image"><a href="AF9D2B0D-5DA7-4287-8029-A2B663B0D43B/"><img src="AF9D2B0D-5DA7-4287-8029-A2B663B0D43B/https://retroflex.xyz/ai/_cover.png"></a></div>-->
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./ai/">On India-first AI, Decolonization, and Irreducibility</a></div>
+      <div class="item-info">
+        <div class="item-date">Jun 11, 2023</div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="item">
+    
+    <!--<div class="item-hero-image"><a href="E2B990EC-7BE7-4165-AA15-2F7B43B792C4/"><img src="E2B990EC-7BE7-4165-AA15-2F7B43B792C4/https://retroflex.xyz/decafquest/_cover.png"></a></div>-->
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./decafquest/">Crypto: Is It Really Worse Than A Philosophy Ponzi?</a></div>
+      <div class="item-info">
+        <div class="item-date">Nov 29, 2022</div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="item">
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./surinderkaur/">Documentary: Surinder Kaur</a></div>
+      <div class="item-info">
+        <div class="item-date">Jun 12, 2022</div>
+        
+        <img src="./assets/microphone.svg" width="1em" class="item-audio-icon" alt="Video">
+      </div>
+    </div>
+  </div>
+  
+  <div class="item">
+    
+    <!--<div class="item-hero-image"><a href="F63C70DD-D110-4803-B128-652362A09F84/"><img src="F63C70DD-D110-4803-B128-652362A09F84/https://retroflex.xyz/retroflex/IMG_0012.jpg"></a></div>-->
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./retroflex/">Retroflex.eth</a></div>
+      <div class="item-info">
+        <div class="item-date">Nov 13, 2021</div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="item">
+    
+    <!--<div class="item-hero-image"><a href="2A3A30CE-E1DC-4475-91B9-B5BF0ACCB330/"><img src="2A3A30CE-E1DC-4475-91B9-B5BF0ACCB330/https://retroflex.xyz/0/17th_century_Mul_Mantar,_Guru_Arjan_handwriting,_Kartarpur_manuscript.jpg"></a></div>-->
+    
+    <div class="item-main">
+      <div class="item-title"><a href="./0/">0 to &#xA74;</a></div>
+      <div class="item-info">
+        <div class="item-date">Aug 1, 2021</div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="pages-container">
+  
+  <div class="pages-info">Page 1 of 1</div>
+  
+</div>
+
+
+        <footer id="footer" style="display: none;"><div class="footer-inner">
+        </div></footer>
+      </div>
+    </div>
+    <center><style>
+  .pages-container {
+    display: none;
+  }
+  @media (prefers-color-scheme: light) {
+    /* all your styles for dark mode here */
+}
+</style>
+  <a href="mailto:prab@hey.com">Contact</a> • 
+  <a href="https://retroflex.xyz/subscribe">Subscribe</a> •
+  <a href="https://retroflex.xyz/privacy">Privacy</a>
+  <p>
+   </p>
+    <a href="https://prabhchintan.gumroad.com/l/license">© 2023</a><a href="https://xn--spb.com/"> Retroflex.eth, </a>
+<a href="https://goo.gl/maps/mPSJmQu2Z21paTqN6">Austin, TX 78726</a> 
+<br><br></center>
+  </body>
+</html>
